@@ -28,6 +28,10 @@
 #include "Object/Actor.h"
 #include "Object/Scene.h"
 
+//components
+#include "Components/SpriteComponent.h"
+#include "Components/PhysicsComponent.h"
+
 //Framework
 #include "Framework/EventSystem.h"
 
