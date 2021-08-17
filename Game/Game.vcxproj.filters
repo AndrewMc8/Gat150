@@ -9,10 +9,45 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source\Actors">
+      <UniqueIdentifier>{cb1a1ea5-9ac4-4389-b8f3-dab7453b1075}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Actors\Player.cpp">
+      <Filter>Source\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Actors\Enemy.cpp">
+      <Filter>Source\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Actors\Pickups.cpp">
+      <Filter>Source\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Actors\Projectile.cpp">
+      <Filter>Source\Actors</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Actors\Player.h">
+      <Filter>Source\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Actors\Enemy.h">
+      <Filter>Source\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Actors\Pickups.h">
+      <Filter>Source\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Actors\Projectile.h">
+      <Filter>Source\Actors</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

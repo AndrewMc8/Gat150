@@ -1,4 +1,5 @@
 #pragma once
+#include "SDL.h"
 #include <string>
 
 namespace nc
@@ -14,6 +15,16 @@ namespace nc
 			r = (rgb & 0xff) / 255.0f; // 0 - 255
 			g = ((rgb >> 8) & 0xff) / 255.0f; //0 - 255
 			b = ((rgb >> 16) & 0xff) / 255.0f; //0 - 255
+		}
+
+		operator SDL_Color() const
+		{
+			SDL_Color color;
+			color.r = static_cast<Uint8>(r * 255);
+			color.g = static_cast<Uint8>(g * 255);
+			color.b = static_cast<Uint8>(b * 255);
+			color.a = 255;
+			return color;
 		}
 
 		Color operator + (const Color& color) { return { r = color.r, g + color.g, b + color.b}; }
