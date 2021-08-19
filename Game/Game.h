@@ -3,10 +3,8 @@
 
 class Game
 {
+
 public:
-
-
-public: 
 	void Initialize();
 	void Shutdown();
 
@@ -22,3 +20,4 @@ public:
 private:
 	bool quit = false;
 };
+

@@ -12,6 +12,8 @@ namespace nc
 		systems.push_back(std::make_unique<ParticleSystem>()); //particles
 
 		std::for_each(systems.begin(), systems.end(), [](auto& system) { system->Startup(); });
+
+		ObjectFactory::Instance().Register<nc::SpriteAnimationComponent>("SpriteAnimationComponent");
 	}
 
 	void Engine::Shutdown()

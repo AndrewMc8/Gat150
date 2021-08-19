@@ -31,9 +31,12 @@
 //components
 #include "Components/SpriteComponent.h"
 #include "Components/PhysicsComponent.h"
+#include "Components/SpriteAnimationComponent.h"
 
 //Framework
 #include "Framework/EventSystem.h"
+#include "Framework/Singleton.h"
+#include "Framework/Factory.h"
 
 //resource
 #include "Resource/ResourseSystem.h"
@@ -48,6 +51,8 @@
 
 namespace nc
 {
+	using ObjectFactory = Singleton<Factory<std::string, Object>>;
+
 	class Engine
 	{
 	public:
