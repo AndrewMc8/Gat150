@@ -32,6 +32,9 @@ namespace nc
 		Color operator * (float s) const { return { r * s, g * s, b * s }; }
 		operator uint32_t() const { return ToRGB(); }
 
+		float operator [] (size_t index) const { return (&r)[index]; }
+		float& operator [] (size_t index) { return (&r)[index]; }
+
 		uint32_t ToRGB() const
 		{
 			std::uint8_t red = static_cast<std::uint8_t>(r * 255);
@@ -42,6 +45,7 @@ namespace nc
 		}
 
 		friend std::istream& operator >> (std::istream& stream, Color& c);
+		friend std::ostream& operator << (std::ostream& stream, Color& c);
 
 		static const Color white;
 		static const Color red;

@@ -1,6 +1,6 @@
 #pragma once
 #include "Object.h"
-
+#include "Core/Serializable.h"
 #include <list>
 #include <memory>
 #include <vector>
@@ -11,7 +11,7 @@ namespace nc
 	class Engine;
 	class Renderer;
 
-	class Scene : public Object
+	class Scene : public Object, public ISerializable
 	{
 	public:
 		void Update(float dt);
@@ -27,12 +27,17 @@ namespace nc
 		template<typename T>
 		std::vector<T*> GetActors();
 
+		virtual bool Write(const rapidjson::Value& value) const override;
+		virtual bool Read(const rapidjson::Value& value) override;
+	
 	public:
 		Engine* engine;
 
 	private:
 		std::vector<std::unique_ptr<Actor>> actors;
 		std::vector<std::unique_ptr<Actor>> newActors;
+
+		// Inherited via ISerializable
 	};
 
 	template<typename T>

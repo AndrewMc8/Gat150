@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "Math/Transform.h"
 #include "Components/Component.h"
+#include "Core/Serializable.h"
 #include <memory>
 #include <vector>
 
@@ -10,7 +11,7 @@ namespace nc
 	class Scene;
 	class Renderer;
 
-	class Actor : public Object
+	class Actor : public Object, public ISerializable
 	{
 	public:
 		Actor() {}
@@ -29,6 +30,10 @@ namespace nc
 		template<class T>
 		T* AddComponent();
 
+		// Inherited via ISerializable
+		virtual bool Write(const rapidjson::Value& value) const override;
+		virtual bool Read(const rapidjson::Value& value) override;
+	
 	public:
 		bool destroy = false;
 		std::string tag;
@@ -40,6 +45,7 @@ namespace nc
 		std::vector<std::unique_ptr<Actor>> chillins;
 
 		std::vector<std::unique_ptr<Component>> components;
+
 	};
 
 

@@ -15,26 +15,33 @@ void Game::Initialize()
 
 	nc::SetFilePath("../Resources");
 
-	std::unique_ptr<nc::Actor> actor = std::make_unique<nc::Actor>(nc::Transform{ nc::Vector2{400, 300}, 0, 1 });
-	{
-		auto component = nc::ObjectFactory::Instance().Create<nc::SpriteAnimationComponent>("SpriteAnimationComponent");
+	rapidjson::Document document;
+	//nc::json::Load("scene.txt", document);
+	bool success = nc::json::Load("scene.txt", document);
+	assert(success);
 
-		//nc::SpriteComponent* component = actor->AddComponent<nc::SpriteComponent>();
-		//component->texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("character.png", engine->Get<nc::Renderer>());
+	scene->Read(document);
 
-		//nc::SpriteAnimationComponent* component = actor->AddComponent<nc::SpriteAnimationComponent>();
-		component->texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("sparkle.png", engine->Get<nc::Renderer>());
-		component->fps = 24;
-		component->numFramesX = 8;
-		component->numFramesY = 8;
-		actor->AddComponent(std::move(component));
+	//std::unique_ptr<nc::Actor> actor = std::make_unique<nc::Actor>(nc::Transform{ nc::Vector2{400, 300}, 0, 1 });
+	//{
+	//	auto component = nc::ObjectFactory::Instance().Create<nc::SpriteAnimationComponent>("SpriteAnimationComponent");
 
-	}
-	{
-		/*nc::PhysicsComponent* component = actor->AddComponent<nc::PhysicsComponent>();
-		component->ApplyForce(nc::Vector2::right * 200);*/
-	}
-	scene->AddActor(std::move(actor));
+	//	//nc::SpriteComponent* component = actor->AddComponent<nc::SpriteComponent>();
+	//	//component->texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("character.png", engine->Get<nc::Renderer>());
+
+	//	//nc::SpriteAnimationComponent* component = actor->AddComponent<nc::SpriteAnimationComponent>();
+	//	component->texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("sparkle.png", engine->Get<nc::Renderer>());
+	//	component->fps = 24;
+	//	component->numFramesX = 8;
+	//	component->numFramesY = 8;
+	//	actor->AddComponent(std::move(component));
+
+	//}
+	//{
+	//	/*nc::PhysicsComponent* component = actor->AddComponent<nc::PhysicsComponent>();
+	//	component->ApplyForce(nc::Vector2::right * 200);*/
+	//}
+	//scene->AddActor(std::move(actor));
 }
 
 void Game::Shutdown()

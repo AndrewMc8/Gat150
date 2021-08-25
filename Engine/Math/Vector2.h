@@ -58,6 +58,7 @@ namespace nc
 		static float Dot(const Vector2& v1, const Vector2& v2);
 
 		friend std::istream& operator >> (std::istream& stream, Vector2& v);
+		friend std::ostream& operator << (std::ostream& stream, Vector2& v);
 
 		static const Vector2 up;
 		static const Vector2 down;

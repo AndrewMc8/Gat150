@@ -31,4 +31,29 @@ namespace nc
 	{
 		renderer->Draw(texture, rect, owner->transform);
 	}
+
+	bool SpriteAnimationComponent::Write(const rapidjson::Value& value) const
+	{
+		return false;
+	}
+
+	bool SpriteAnimationComponent::Read(const rapidjson::Value& value)
+	{
+		SpriteComponent::Read(value);
+
+		int FPS;
+		JSON_READ(value, FPS);
+
+		int NumFramesX;
+		JSON_READ(value, NumFramesX);
+
+		int NumFramesY;
+		JSON_READ(value, NumFramesY);
+
+		fps = FPS;
+		numFramesX = NumFramesX;
+		numFramesY = NumFramesY;
+
+		return true;
+	}
 }

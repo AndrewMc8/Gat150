@@ -110,6 +110,12 @@
     <ClCompile Include="Components\SpriteAnimationComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Json.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\GraphicsComponent.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\EventSystem.h">
@@ -211,5 +217,16 @@
     <ClInclude Include="Framework\Factory.h">
       <Filter>Source\Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Json.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serializable.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Build\Resources\scene.txt">
+      <Filter>Resources</Filter>
+    </Text>
   </ItemGroup>
 </Project>
