@@ -9,6 +9,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source\GameComponent">
+      <UniqueIdentifier>{789188c7-28f2-450f-bcb0-cbc86ec6828c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -17,10 +20,16 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="GameComponent\PlayerComponent.cpp">
+      <Filter>Source\GameComponent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponent\PlayerComponent.h">
+      <Filter>Source\GameComponent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

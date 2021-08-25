@@ -12,11 +12,8 @@
          },
          "components":[
             {
-               "type":"SpriteComponent",
-               "textureName":"sf2.png"
-            },
-            {
-               "type":"PhysicsComponent"
+               "type":"PlayerComponent",
+               "speed":150
             },
             {
                "type":"SpriteAnimationComponent",
@@ -24,6 +21,41 @@
                "FPS":24,
                "NumFramesX":8,
                "NumFramesY":8
+            },
+            {
+               "type":"RBPhysicsComponent",
+               "data.isDynamic":true,
+               "data.density":1,
+               "data.lockAngle":true,
+               "data.size":[
+                  64,
+                  96
+               ]
+            }
+         ]
+      },
+      {
+         "type":"Actor",
+         "tag":"Ground",
+         "transform":{
+            "position":[
+               400,
+               550
+            ]
+         },
+         "components":[
+            {
+               "type":"SpriteComponent",
+               "textureName":"Ground.png"
+            },
+            {
+               "type":"RBPhysicsComponent",
+               "data.isDynamic":false,
+               "data.density":1,
+               "data.size":[
+                  800,
+                  20
+               ]
             }
          ]
       }

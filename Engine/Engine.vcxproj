@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -113,7 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -134,7 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -155,7 +155,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\Box2D\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(ProjectDir);$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -175,6 +175,7 @@
     <ClCompile Include="Audio\AudioSystem.cpp" />
     <ClCompile Include="Components\GraphicsComponent.cpp" />
     <ClCompile Include="Components\PhysicsComponent.cpp" />
+    <ClCompile Include="Components\RBPhysicsComponent.cpp" />
     <ClCompile Include="Components\SpriteAnimationComponent.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
     <ClCompile Include="Core\FileSystem.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="Math\Vector2.cpp" />
     <ClCompile Include="Object\Actor.cpp" />
     <ClCompile Include="Object\Scene.cpp" />
+    <ClCompile Include="Physics\PhysicsSystem.cpp" />
     <ClCompile Include="Resource\ResourseSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +205,7 @@
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\GraphicsComponent.h" />
     <ClInclude Include="Components\PhysicsComponent.h" />
+    <ClInclude Include="Components\RBPhysicsComponent.h" />
     <ClInclude Include="Components\SpriteAnimationComponent.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
     <ClInclude Include="Core\FileSystem.h" />
@@ -231,6 +234,7 @@
     <ClInclude Include="Object\Actor.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="Object\Scene.h" />
+    <ClInclude Include="Physics\PhysicsSystem.h" />
     <ClInclude Include="Resource\Resource.h" />
     <ClInclude Include="Resource\ResourseSystem.h" />
   </ItemGroup>
