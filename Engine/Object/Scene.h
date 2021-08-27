@@ -21,6 +21,8 @@ namespace nc
 		void RemoveActor(Actor* actor);
 		void RemoveAllActors();
 
+		Actor* FindActor(const std::string& name);
+
 		template<typename T>
 		T* GetActor();
 		

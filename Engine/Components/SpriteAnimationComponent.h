@@ -1,14 +1,25 @@
 #pragma once
 #include "SpriteComponent.h"
 #include "SDL.h"
+#include <map>
 
 namespace nc
 {
 	class SpriteAnimationComponent : public SpriteComponent
 	{
+	private:
+		struct Sequence
+		{
+			int fps = 0;
+			int startFrame = 0;
+			int endFrame = 0;
+		};
+
 	public:
 		void Update() override;
 		void Draw(Renderer* renderer) override;
+
+		void StartSequence(const std::string& name);
 
 		// Inherited via SpriteComponent
 		virtual bool Write(const rapidjson::Value& value) const override;
@@ -17,13 +28,19 @@ namespace nc
 	public:
 		int frame = 0;
 		int fps = 0;
+
 		int numFramesX = 0;
 		int numFramesY = 0;
+
+		int startFrame = 0;
+		int endFrame = 0;
 
 		float frameTimer = 0;
 		float frameTime = 0;
 
 		SDL_Rect rect;
 
+		std::map<std::string, Sequence> sequences;
+		std::string sequenceName;
 	};
 }

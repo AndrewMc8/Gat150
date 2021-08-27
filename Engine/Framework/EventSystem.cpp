@@ -17,10 +17,12 @@ namespace nc
 
 	}
 
-	void EventSystem::Subscribe(const std::string& name, function_t function)
+	void EventSystem::Subscribe(const std::string& name, function_t function, Object* reciever)
 	{
 		Observer observer;
 		observer.function = function;
+		observer.reciever = reciever;
+
 		observers[name].push_back(observer);
 	}
 
@@ -29,7 +31,10 @@ namespace nc
 		auto& eventObservers = observers[event.name];
 		for (auto& observer : eventObservers)
 		{
-			observer.function(event);
+			if (event.reciever == nullptr || event.reciever == observer.reciever)
+			{
+				observer.function(event);
+			}
 		}
 	}
 }

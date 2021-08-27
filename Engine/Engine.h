@@ -40,6 +40,8 @@
 #include "Components/PhysicsComponent.h"
 #include "Components/SpriteAnimationComponent.h"
 #include "Components/RBPhysicsComponent.h"
+#include "Components/AudioComponent.h"
+#include "Components/TextComponent.h"
 
 //Framework
 #include "Framework/EventSystem.h"
