@@ -1,43 +1,52 @@
 #include "RBPhysicsComponent.h"
 #include"Engine.h"
 
-void nc::RBPhysicsComponent::Update()
+
+namespace nc
 {
-	if (!body)
+	void RBPhysicsComponent::Update()
 	{
-		body = owner->scene->engine->Get<PhysicsSystem>()->CreateBody(owner->transform.position, owner->transform.rotation, data, owner);
-		body->SetGravityScale(data.gravityScale);
-		body->SetLinearDamping(1);
+		if (!body)
+		{
+			body = owner->scene->engine->Get<PhysicsSystem>()->CreateBody(owner->transform.position, owner->transform.rotation, data, owner);
+			body->SetGravityScale(data.gravityScale);
+			body->SetLinearDamping(1);
+		}
+
+		owner->transform.position = PhysicsSystem::WorldToScreen(body->GetPosition());
+		owner->transform.rotation = body->GetAngle();
+		velocity = body->GetLinearVelocity();
 	}
 
-	owner->transform.position = PhysicsSystem::WorldToScreen(body->GetPosition());
-	owner->transform.rotation = body->GetAngle();
-	velocity = body->GetLinearVelocity();
-}
-
-void nc::RBPhysicsComponent::ApplyForce(const Vector2& force)
-{
-	if (body)
+	void RBPhysicsComponent::ApplyForce(const Vector2& force)
 	{
-		body->ApplyForceToCenter(force, true);
+		if (body)
+		{
+			body->ApplyForceToCenter(force, true);
+		}
 	}
-}
 
-bool nc::RBPhysicsComponent::Read(const rapidjson::Value& value)
-{
-	JSON_READ(value, data.isDynamic);
-	JSON_READ(value, data.isSensor);
-	JSON_READ(value, data.lockAngle);
-	JSON_READ(value, data.size);
-	JSON_READ(value, data.density);
-	JSON_READ(value, data.friction);
-	JSON_READ(value, data.restitution);
-	JSON_READ(value, data.gravityScale);
+	RBPhysicsComponent::~RBPhysicsComponent()
+	{
+		owner->scene->engine->Get<PhysicsSystem>()->DestroyBody(body);
+	}
 
-	return true;
-}
+	bool RBPhysicsComponent::Read(const rapidjson::Value& value)
+	{
+		JSON_READ(value, data.isDynamic);
+		JSON_READ(value, data.isSensor);
+		JSON_READ(value, data.lockAngle);
+		JSON_READ(value, data.size);
+		JSON_READ(value, data.density);
+		JSON_READ(value, data.friction);
+		JSON_READ(value, data.restitution);
+		JSON_READ(value, data.gravityScale);
 
-bool nc::RBPhysicsComponent::Write(const rapidjson::Value& value) const
-{
-	return false;
+		return true;
+	}
+
+	bool RBPhysicsComponent::Write(const rapidjson::Value& value) const
+	{
+		return false;
+	}
 }

@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "GameComponent/PlayerComponent.h"
 #include "GameComponent/EnemyComponent.h"
+#include "GameComponent/PickupComponent.h"
 
 //int global = 10;
 
@@ -14,6 +15,7 @@ void Game::Initialize()
 	//register classes
 	REGISTER_CLASS(PlayerComponent);
 	REGISTER_CLASS(EnemyComponent);
+	REGISTER_CLASS(PickupComponent);
 
 	//create scene
 	scene = std::make_unique<nc::Scene>(); //new Scene()
@@ -27,6 +29,13 @@ void Game::Initialize()
 	assert(success);
 
 	scene->Read(document);
+
+	for (int i = 0; i < 10; i++)
+	{
+		auto actor = nc::ObjectFactory::Instance().Create<nc::Actor>("coin");
+		actor->transform.position = nc::Vector2{ nc::RandomRange(0, 800), nc::RandomRange(300, 500) };
+		scene->AddActor(std::move(actor));
+	}
 
 	//std::unique_ptr<nc::Actor> actor = std::make_unique<nc::Actor>(nc::Transform{ nc::Vector2{400, 300}, 0, 1 });
 	//{

@@ -3,6 +3,12 @@
 
 using namespace nc;
 
+PlayerComponent::~PlayerComponent()
+{
+	owner->scene->engine->Get<EventSystem>()->Unsubscribe("collision_enter", owner);
+	owner->scene->engine->Get<EventSystem>()->Unsubscribe("collision_exit", owner);
+}
+
 void PlayerComponent::Create()
 {
 	owner->scene->engine->Get<EventSystem>()->Subscribe("collision_enter", std::bind(&PlayerComponent::OnCollisionEnter, this, std::placeholders::_1), owner);

@@ -26,6 +26,22 @@ namespace nc
 		observers[name].push_back(observer);
 	}
 
+	void EventSystem::Unsubscribe(const std::string& name, Object* reciever)
+	{
+			auto& eventObservers = observers[name];
+			for (auto iter = eventObservers.begin(); iter != eventObservers.end();)
+			{
+				if (iter->reciever == reciever)
+				{
+					iter = eventObservers.erase(iter);
+				}
+				else
+				{
+					iter++;
+				}
+			}
+	}
+
 	void EventSystem::Notify(const Event& event)
 	{
 		auto& eventObservers = observers[event.name];

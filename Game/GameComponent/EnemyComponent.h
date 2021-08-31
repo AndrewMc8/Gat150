@@ -4,6 +4,7 @@
 class EnemyComponent : public nc::Component
 {
 public:
+	std::unique_ptr<Object> Clone() const { return std::make_unique<EnemyComponent>(*this); }
 
 	virtual void Update() override;
 

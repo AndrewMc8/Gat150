@@ -3,12 +3,12 @@
 #include "Engine.h"
 #include "Framework/EventSystem.h"
 
-class PlayerComponent : public nc::Component
+class PickupComponent : public nc::Component
 {
 public:
-	std::unique_ptr<Object> Clone() const { return std::make_unique<PlayerComponent>(*this); }
+	std::unique_ptr<Object> Clone() const { return std::make_unique<PickupComponent>(*this); }
 
-	~PlayerComponent();
+	~PickupComponent();
 
 	void Create() override;
 	virtual void Update() override;
@@ -18,10 +18,4 @@ public:
 
 	virtual bool Read(const rapidjson::Value& value) override;
 	virtual bool Write(const rapidjson::Value& value) const override;
-
-public:
-	float speed = 0;
-
-private:
-	std::list<nc::Actor*> contacts;
 };

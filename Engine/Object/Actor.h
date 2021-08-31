@@ -14,8 +14,12 @@ namespace nc
 	class Actor : public Object, public ISerializable
 	{
 	public:
+		std::unique_ptr<Object> Clone() const { return std::make_unique<Actor>(*this); }
+
 		Actor() {}
 		Actor(const Transform transform) : transform{ transform } {}
+		Actor(const Actor& other);
+
 		virtual void Initialize() {}
 
 		virtual void Update(float dt);
