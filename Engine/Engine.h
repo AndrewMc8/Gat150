@@ -34,6 +34,7 @@
 //objects
 #include "Object/Actor.h"
 #include "Object/Scene.h"
+#include "Object/TileMap.h"
 
 //components
 #include "Components/SpriteComponent.h"

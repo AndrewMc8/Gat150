@@ -26,6 +26,11 @@ namespace nc
 		}
 	}
 
+	RBPhysicsComponent::RBPhysicsComponent(const RBPhysicsComponent& other)
+	{
+		data = other.data;
+	}
+
 	RBPhysicsComponent::~RBPhysicsComponent()
 	{
 		owner->scene->engine->Get<PhysicsSystem>()->DestroyBody(body);

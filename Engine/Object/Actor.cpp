@@ -22,6 +22,8 @@ namespace nc
 
 	void Actor::Update(float dt)
 	{
+		if (!active) return;
+
 		std::for_each(components.begin(), components.end(), [](auto& component) { component->Update(); });
 
 		transform.Update();
@@ -48,7 +50,7 @@ namespace nc
 			scene->engine->Get<EventSystem>()->Notify(event);
 		}
 
-		std::cout << "begin: " << other->tag << std::endl;
+		//std::cout << "begin: " << other->tag << std::endl;
 	}
 
 	void Actor::EndContact(Actor* other)
@@ -64,7 +66,7 @@ namespace nc
 			scene->engine->Get<EventSystem>()->Notify(event);
 		}
 
-		std::cout << "end: " << other->tag << std::endl;
+		//std::cout << "end: " << other->tag << std::endl;
 	}
 
 	void Actor::AddComponent(std::unique_ptr<Component> component)

@@ -4,6 +4,7 @@
          "type":"Actor",
          "name":"Player",
          "tag":"Player",
+         "prototype":true,
          "transform":{
             "position":[
                400,
@@ -15,7 +16,8 @@
          "components":[
             {
                "type":"PlayerComponent",
-               "speed":50
+               "speed":50,
+               "jump":1500
             },
             {
 	            "type":"AudioComponent",
@@ -58,17 +60,19 @@
                "data.density":2,
                "data.lockAngle":true,
                "data.restitution":0.1,
-               "data.gravityScale":0.5,
+               "data.gravityScale":2,
                "data.size":[
-                  40,
-                  40
+                  32,
+                  60
                ]
             }
          ]
       },
       {
          "type":"Actor",
+         "name":"bat",
          "tag":"Enemy",
+         "prototype":true,
          "transform":{
             "position":[
                500,
@@ -80,7 +84,7 @@
          "components":[
             {
                "type":"EnemyComponent",
-               "speed":25
+               "speed":5
             },
             {
                "type":"SpriteAnimationComponent",
@@ -94,8 +98,8 @@
             {
                "type":"RBPhysicsComponent",
                "data.isDynamic":true,
-               "data.isSensor":true,
-               "data.density":2,
+               "data.isSensor":false,
+               "data.density":1,
                "data.lockAngle":true,
                "data.restitution":0.1,
                "data.gravityScale":0,
@@ -107,49 +111,57 @@
          ]
       },
       {
-			"type":"Actor",
-			"name":"Score",
-			"transform":{
-				"position":[
-					60,
-					20
-				]
-			},
-			"components":[
-				{
-					"type":"TextComponent",
-					"fontName":"Fonts/8514oem.fon",
-					"fontSize":16,
-					"color":[
-						1,
-						1,
-						1
-					],
-					"text":"Hello World!"
-				}
-			]
-		},
-      {
          "type":"Actor",
+         "name":"tile01",
          "tag":"ground",
+         "prototype": true,
          "transform":{
-            "position":[
-               400,
-               550
+            "scale":[
+               2,
+               2
             ]
          },
          "components":[
             {
                "type":"SpriteComponent",
-               "textureName":"Ground.png"
+               "textureName":"tileset2_32x32.png",
+               "rect":[160, 0, 32, 32]
             },
             {
                "type":"RBPhysicsComponent",
                "data.isDynamic":false,
                "data.density":1,
                "data.size":[
-                  800,
-                  20
+                  64,
+                  64
+               ]
+            }
+         ]
+      },
+      {
+         "type":"Actor",
+         "name":"tile02",
+         "prototype":true,
+         "tag":"ground",
+         "transform":{
+            "scale":[
+               2,
+               2
+            ]
+         },
+         "components":[
+            {
+               "type":"SpriteComponent",
+               "textureName":"tileset2_32x32.png",
+               "rect":[448, 32, 32, 32]
+            },
+            {
+               "type":"RBPhysicsComponent",
+               "data.isDynamic":false,
+               "data.density":1,
+               "data.size":[
+                  64,
+                  64
                ]
             }
          ]

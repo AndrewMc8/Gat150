@@ -36,6 +36,15 @@ void PickupComponent::OnCollisionEnter(const Event& event)
 	{
 		owner->scene->engine->Get<AudioSystem>()->PlayAudio("coinSound");
 		owner->destroy = true;
+
+		Event event;
+		event.name = "add_score";
+		event.data = 100;
+
+		owner->scene->engine->Get<EventSystem>()->Notify(event);
+
+		event.name = "spawn";
+		owner->scene->engine->Get<EventSystem>()->Notify(event);
 	}
 }
 
